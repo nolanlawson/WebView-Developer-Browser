@@ -1,5 +1,6 @@
 package main.java;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -28,6 +29,7 @@ public class MainActivity extends Activity {
   private TextView pageLoadTime;
 
   @Override
+  @SuppressLint("NewApi")
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.main);
@@ -49,7 +51,6 @@ public class MainActivity extends Activity {
       WebView.setWebContentsDebuggingEnabled(true);
     }
     wv.setWebChromeClient(new WebChromeClient());
-    wv.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
     WebSettings settings = wv.getSettings();
     settings.setAllowUniversalAccessFromFileURLs(true);
     settings.setJavaScriptEnabled(true);
